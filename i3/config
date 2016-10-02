@@ -1,0 +1,153 @@
+
+# place i3status at the top of the screen when $mod is pressed
+bar {
+	status_command i3status
+
+	position	top
+	
+	mode		hide
+	modifier	$mod
+}
+
+set $mod Mod1
+floating_modifier $mod
+font pango:monospace 8
+
+exec --no-startup-id feh --bg-scale $HOME/media/pictures/backgrounds/wallpaper.jpg
+exec dunst
+
+# i3-gaps settings
+gaps inner 12
+gaps outer 0
+
+# make some workspaces use full screen
+workspace 1		gaps inner 0
+workspace "Spotify"	gaps inner 0
+
+# assign applications to workspaces
+assign [class="Spotify"] "Spotify"
+assign [class="Opera"] 1
+
+# i3 settings
+workspace_auto_back_and_forth yes
+focus_follows_mouse no
+popup_during_fullscreen smart
+
+new_window pixel 2
+new_float normal
+hide_edge_borders none
+
+# hide borders for some applications
+for_window [class="chromium"] 	border pixel 0
+for_window [class="Slack"]	border pixel 0
+for_window [class="Spotify"]	border pixel 0
+for_window [class="Opera"]	border pixel 0
+
+# commands
+bindsym $mod+Shift+c		reload
+bindsym $mod+Shift+r		restart
+bindsym	$mod+Shift+e		exec i3-msg exit
+bindsym $mod+Shift+q		kill
+
+bindsym $mod+Return		exec xfce4-terminal
+bindsym $mod+r			exec rofi -show run -fg "#505050" -bg "#eeeeee" -hlfg "#eeeeee" -hl bg "#dddddd" -opacity 98 -sidebar-mode -bw 0 -scrollbar-width 0 -threads 
+
+bindsym $mod+f			fullscreen
+bindsym $mod+v			split v
+bindsym $mod+h			split h
+
+bindsym $mod+t			focus mode_toggle
+bindsym $mod+Shift+t	floating toggle
+
+bindsym $mod+Shift+p    move scratchpad
+bindsym $mod+p    scratchpad show
+
+# scratchpad controls
+bindsym $mod+b 			mode "resize"
+bindsym $mod+m			mode "move" focus floating
+
+# remove from scratchpad
+bindsym $mod+o          floating disable; floating enable
+
+# change focus
+bindsym $mod+j			focus left
+bindsym $mod+k			focus down
+bindsym $mod+l			focus up
+bindsym $mod+odiaeresis		focus right
+
+# move focused window
+bindsym $mod+Shift+j		move left
+bindsym $mod+Shift+k		move down
+bindsym $mod+Shift+l		move up
+bindsym $mod+Shift+odiaeresis	move right
+
+# volume control
+# 121/122/123
+bindcode 121 exec amixer -D pulse sset Master toggle
+bindcode 122 exec amixer -D pulse sset Master 1%-
+bindcode 123 exec amixer -D pulse sset Master 1%+
+
+# enable volume controls when mod is pressed
+bindcode $mod+121 exec amixer -D pulse sset Master toggle
+bindcode $mod+122 exec amixer -D pulse sset Master 1%-
+bindcode $mod+123 exec amixer -D pulse sset Master 1%+
+
+
+
+# screen brightness
+bindcode 232 exec xbacklight -dec 10
+bindcode 233 exec xbacklight -inc 10
+# 232/233
+
+# saving printscreens in ~/media/pictures/screenshots
+bindcode 107 exec scrot $HOME/media/pictures/screenshots/%Y-%m-%d-%T.png
+bindcode $mod+107 exec scrot $HOME/media/pictures/screenshots/%Y-%m-%d-%T.png
+
+# switching workspace
+bindsym $mod+1			workspace 1
+bindsym $mod+2			workspace 2
+bindsym $mod+3			workspace 3
+bindsym $mod+4			workspace 4
+bindsym $mod+5			workspace 5
+bindsym $mod+s			workspace "Spotify"
+
+# move containers between workspaces
+bindsym $mod+Shift+1		move container to workspace 1
+bindsym $mod+Shift+2		move container to workspace 2
+bindsym $mod+Shift+3		move container to workspace 3
+bindsym $mod+Shift+4		move container to workspace 4
+bindsym $mod+Shift+5		move container to workspace 5
+bindsym $mod+Shift+s		move container to workspace "Spotify"
+
+# move floating windows with keys
+mode "move" {
+	bindsym j			    move left
+	bindsym k			    move down
+	bindsym l			    move up
+	bindsym odiaeresis		move right
+
+	# use Return/Escape to go back to normal
+	bindsym Return			mode "default"
+	bindsym Escape			mode "default"
+}
+
+# resize window
+mode "resize" {
+	bindsym j			    resize shrink	width	10 px or 10 ppt
+	bindsym k			    resize grow	height	10 px or 10 ppt
+	bindsym l			    resize shrink	height	10 px or 10 ppt
+	bindsym odiaeresis		resize grow	width	10 px or 10 ppt
+
+	# use Return/Escape to go back to normal
+	bindsym Return			mode "default"
+	bindsym Escape			mode "default"
+}
+
+# border colouring
+# class                 border  backgr. text    indicator
+client.focused          #fa5a00 #fa5a00 #ffffff #a31919
+client.focused_inactive #4c7899 #285577 #ffffff #a31919
+client.unfocused        #9999b7 #285577 #888888 #a31919
+client.urgent           #2f343a #900000 #ffffff #900000
+
+client.background       #ffffff
