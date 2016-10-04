@@ -1,0 +1,11 @@
+*
+!bash
+!.git
+!gitignore
+!.gitignore
+!i3
+!i3status
+!user-dirs.dirs
+!user-dirs.locale
+!vim
+!xfce4
