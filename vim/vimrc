@@ -1,0 +1,42 @@
+" reset options when re-sourcing vimrc
+set nocompatible
+
+" determine filetype from file name and contents
+" allows auto-indenting for each filetype
+filetype indent plugin on
+
+" yank and paste from system clipboard
+" requires vim with +clipboar
+set clipboard=unnamedplus
+
+" if no filetype-specific indenting is enable,
+" keep the same level of indent as previous line
+set autoindent
+
+" reloads the file when changed
+" (does not always work, use ":e" to reload)
+set autoread
+
+" enable syntax highlighting
+syntax on
+
+" makes swapping buffers easier
+set hidden
+
+" use case-insensitive search 
+" except when using capital letters
+set ignorecase
+set smartcase
+
+" show line numbers on left
+set number
+
+" as many hard-tabs as possible, space to fill
+set shiftwidth=4
+set softtabstop=4
+
+" direction of split
+set splitbelow
+
+" show column 80
+set colorcolumn=80
