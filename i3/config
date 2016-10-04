@@ -13,7 +13,6 @@ set $mod Mod1
 floating_modifier $mod
 font pango:monospace 8
 
-exec --no-startup-id feh --bg-scale $HOME/media/pictures/backgrounds/wallpaper.jpg
 exec dunst
 
 # i3-gaps settings
