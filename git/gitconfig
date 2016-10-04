@@ -1,0 +1,5 @@
+[core]
+	excludesfile = /home/emini/.config/git/gitignore
+[user]
+	email = karl.emil.nilsson@gmail.com
+	name = Emil Nilsson
