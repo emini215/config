@@ -15,7 +15,7 @@ set $urgent-bg-color     #E53935
 # place i3status at the top of the screen when $mod is pressed
 bar {
 	status_command i3status
-
+	font pango:Source Code Pro Medium, FontAwesome 9
 	position	top
 	
 	mode		hide
@@ -33,7 +33,7 @@ bar {
 
 set $mod Mod1
 floating_modifier $mod
-font pango:monospace 8
+font pango:Source Code Pro Medium 8
 exec compton
 
 exec dunst
