@@ -1,0 +1,16 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# cool colours for ls
+alias ls='ls --color=auto'
+
+# set vim as default editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+# gitify the prompt
+source /usr/bin/gitify-prompt.sh set
