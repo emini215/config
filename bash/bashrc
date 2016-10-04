@@ -12,5 +12,8 @@ alias ls='ls --color=auto'
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+# make chromium default browser
+export BROWSER="chromium"
+
 # gitify the prompt
 source /usr/bin/gitify-prompt.sh set
