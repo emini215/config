@@ -31,8 +31,8 @@ volume master {
 
 battery 0 {
         format = "%status %percentage"
-		path = "/sys/class/power_supply/BAT1/uevent"
-		low_threshold = 15
+	path = "/sys/class/power_supply/BAT1/uevent"
+	low_threshold = 15
 }
 
 tztime local {
