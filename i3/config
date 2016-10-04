@@ -1,3 +1,9 @@
+# workspace variabls
+set $workspace1 "1: Chromium"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5: Spotify"
 
 # place i3status at the top of the screen when $mod is pressed
 bar {
@@ -20,12 +26,12 @@ gaps inner 12
 gaps outer 0
 
 # make some workspaces use full screen
-workspace 1		gaps inner 0
-workspace "Spotify"	gaps inner 0
+workspace $workspace1	gaps inner 0
+workspace $workspace5	gaps inner 0
 
 # assign applications to workspaces
-assign [class="Spotify"] "Spotify"
-assign [class="Opera"] 1
+assign [class="Spotify"]    $workspace5
+assign [class="chromium"]   $workspace1
 
 # i3 settings
 workspace_auto_back_and_forth yes
@@ -99,26 +105,24 @@ bindcode 107 exec scrot $HOME/media/pictures/screenshots/%Y-%m-%d-%T.png
 bindcode $mod+107 exec scrot $HOME/media/pictures/screenshots/%Y-%m-%d-%T.png
 
 # switching workspace
-bindsym $mod+1			workspace 1
-bindsym $mod+2			workspace 2
-bindsym $mod+3			workspace 3
-bindsym $mod+4			workspace 4
-bindsym $mod+5			workspace 5
-bindsym $mod+s			workspace "Spotify"
+bindsym $mod+1			workspace $workspace1
+bindsym $mod+2			workspace $workspace2
+bindsym $mod+3			workspace $workspace3
+bindsym $mod+4			workspace $workspace4
+bindsym $mod+5			workspace $workspace5
 
 # move containers between workspaces
-bindsym $mod+Shift+1		move container to workspace 1
-bindsym $mod+Shift+2		move container to workspace 2
-bindsym $mod+Shift+3		move container to workspace 3
-bindsym $mod+Shift+4		move container to workspace 4
-bindsym $mod+Shift+5		move container to workspace 5
-bindsym $mod+Shift+s		move container to workspace "Spotify"
+bindsym $mod+Shift+1		move container to workspace $workspace1
+bindsym $mod+Shift+2		move container to workspace $workspace2
+bindsym $mod+Shift+3		move container to workspace $workspace3
+bindsym $mod+Shift+4		move container to workspace $workspace4
+bindsym $mod+Shift+5		move container to workspace $workspace5
 
 # move floating windows with keys
 mode "move" {
-	bindsym j			    move left
-	bindsym k			    move down
-	bindsym l			    move up
+	bindsym j			move left
+	bindsym k			move down
+	bindsym l			move up
 	bindsym odiaeresis		move right
 
 	# use Return/Escape to go back to normal
@@ -128,9 +132,9 @@ mode "move" {
 
 # resize window
 mode "resize" {
-	bindsym j			    resize shrink	width	10 px or 10 ppt
-	bindsym k			    resize grow	height	10 px or 10 ppt
-	bindsym l			    resize shrink	height	10 px or 10 ppt
+	bindsym j			resize shrink	width	10 px or 10 ppt
+	bindsym k			resize grow	height	10 px or 10 ppt
+	bindsym l			resize shrink	height	10 px or 10 ppt
 	bindsym odiaeresis		resize grow	width	10 px or 10 ppt
 
 	# use Return/Escape to go back to normal
