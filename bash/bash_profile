@@ -8,6 +8,8 @@ if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
 	exec startx
 fi
 
+# add ~/.bin to path
+export PATH=$HOME/.bin:$PATH
 
 # set vim as default editor
 export VISUAL=vim
