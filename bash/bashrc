@@ -17,3 +17,6 @@ export BROWSER="chromium"
 
 # gitify the prompt
 source /usr/bin/gitify-prompt.sh set
+
+# get tab-completion for git
+source /usr/share/git/completion/git-completion.bash
