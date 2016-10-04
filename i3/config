@@ -57,17 +57,17 @@ bindsym $mod+v			split v
 bindsym $mod+h			split h
 
 bindsym $mod+t			focus mode_toggle
-bindsym $mod+Shift+t	floating toggle
+bindsym $mod+Shift+t		floating toggle
 
-bindsym $mod+Shift+p    move scratchpad
-bindsym $mod+p    scratchpad show
+bindsym $mod+Shift+p		move scratchpad
+bindsym $mod+p			scratchpad show
 
 # scratchpad controls
 bindsym $mod+b 			mode "resize"
 bindsym $mod+m			mode "move" focus floating
 
 # remove from scratchpad
-bindsym $mod+o          floating disable; floating enable
+bindsym $mod+o			floating disable; floating enable
 
 # change focus
 bindsym $mod+j			focus left
@@ -82,7 +82,6 @@ bindsym $mod+Shift+l		move up
 bindsym $mod+Shift+odiaeresis	move right
 
 # volume control
-# 121/122/123
 bindcode 121 exec amixer -D pulse sset Master toggle
 bindcode 122 exec amixer -D pulse sset Master 1%-
 bindcode 123 exec amixer -D pulse sset Master 1%+
@@ -92,12 +91,9 @@ bindcode $mod+121 exec amixer -D pulse sset Master toggle
 bindcode $mod+122 exec amixer -D pulse sset Master 1%-
 bindcode $mod+123 exec amixer -D pulse sset Master 1%+
 
-
-
 # screen brightness
 bindcode 232 exec xbacklight -dec 10
 bindcode 233 exec xbacklight -inc 10
-# 232/233
 
 # saving printscreens in ~/media/pictures/screenshots
 bindcode 107 exec scrot $HOME/media/pictures/screenshots/%Y-%m-%d-%T.png
