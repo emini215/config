@@ -34,9 +34,10 @@ bar {
 set $mod Mod1
 floating_modifier $mod
 font pango:Source Code Pro Medium 8
+
+exec dunst 
 exec compton
 
-exec dunst
 
 # i3-gaps settings
 gaps inner 12
