@@ -1,9 +1,9 @@
-# workspace variabls
-set $workspace1 "1: Chromium"
-set $workspace2 "2"
-set $workspace3 "3"
-set $workspace4 "4"
-set $workspace5 "5: Spotify"
+# workspace variables
+set $workspace1 "1: Chromium &#xf268;"
+set $workspace2 "2: Coms &#xf004;"
+set $workspace3 "3: Win &#xf193;"
+set $workspace4 "4: Code &#xf09b;"
+set $workspace5 "5: Spotify &#xf1bc;"
 
 # place i3status at the top of the screen when $mod is pressed
 bar {
