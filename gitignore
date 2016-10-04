@@ -1,1 +1,6 @@
-.*.*.swp
+# temporary files
+*~
+
+# swap files
+*.swp
+*.swo
