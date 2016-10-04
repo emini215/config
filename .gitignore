@@ -1,11 +1,13 @@
+# ignore everything
 *
-!README.md
+
+# except
 !bash
-!.git
-!gitignore
+!git
 !.gitignore
 !i3
 !i3status
+!README.md
 !user-dirs.dirs
 !user-dirs.locale
 !vim
