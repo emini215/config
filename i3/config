@@ -38,6 +38,9 @@ font pango:Source Code Pro Medium 8
 exec dunst 
 exec compton
 
+# screen locker
+bindsym $mod+x		exec /usr/local/bin/lock
+exec xautolock -time 5 -locker /usr/local/bin/lock -detectsleep
 
 # i3-gaps settings
 gaps inner 12
