@@ -6,11 +6,20 @@ set $workspace4 "4: Code &#xf09b;"
 set $workspace5 "5: Spotify &#xf1bc;"
 
 # colour variables
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
+set $bg-color 	         #000000
+set $active-bg-color	 #064273
+set $inactive-bg-color   #032745 
+set $text-color          #FFFFFF
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
+set $indicator		 #FA5A00
+
+# window colors
+#			border		    background		text			indicator
+client.focused          $active-bg-color    $active-bg-color	$text-color		$indicator
+client.unfocused        $inactive-bg-color  $inactive-bg-color	$inactive-text-color	$indicator
+client.focused_inactive $inactive-bg-color  $inactive-bg-color	$inactive-text-color	$indicator
+client.urgent           $urgent-bg-color    $urgent-bg-color	$text-color		$indicator
 
 # place i3status at the top of the screen when $mod is pressed
 bar {
@@ -20,14 +29,13 @@ bar {
 	
 	mode		hide
 	modifier	$mod
-
 	colors {
-		background  $bg-color
-	    	separator   #757575
-		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+		background $bg-color
+	    	separator #757575
+		#                  border	    background		text
+		focused_workspace  $bg-color        $bg-color		$text-color
+		inactive_workspace $bg-color	    $bg-color		$inactive-text-color
+		urgent_workspace   $urgent-bg-color $urgent-bg-color	$text-color
 	}
 }
 
@@ -163,11 +171,3 @@ mode "resize" {
 	bindsym Escape			mode "default"
 }
 
-# border colouring
-# class                 border  backgr. text    indicator
-client.focused          #fa5a00 #fa5a00 #ffffff #a31919
-client.focused_inactive #4c7899 #285577 #ffffff #a31919
-client.unfocused        #9999b7 #285577 #888888 #a31919
-client.urgent           #2f343a #900000 #ffffff #900000
-
-client.background       #ffffff
