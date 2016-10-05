@@ -3,6 +3,7 @@
 
 # except
 !bash
+!compton.conf
 !git
 !.gitignore
 !i3
