@@ -128,6 +128,8 @@ bindcode $mod+123 exec amixer -D pulse sset Master 1%+
 # screen brightness
 bindcode 232 exec xbacklight -dec 10
 bindcode 233 exec xbacklight -inc 10
+bindcode $mod+232 exec xbacklight -dec 10
+bindcode $mod+233 exec xbacklight -inc 10
 
 # saving printscreens in ~/media/pictures/screenshots
 bindcode 107 exec scrot $HOME/media/pictures/screenshots/%Y-%m-%d-%T.png
