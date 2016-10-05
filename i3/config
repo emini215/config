@@ -44,7 +44,7 @@ floating_modifier $mod
 font pango:Source Code Pro Medium 8
 
 exec dunst 
-exec compton
+exec compton --config $HOME/.config/compton.conf -b
 
 # screen locker
 bindsym $mod+x		exec /usr/local/bin/lock
