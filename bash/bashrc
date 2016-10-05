@@ -20,6 +20,9 @@ export EDITOR="$VISUAL"
 # make chromium default browser
 export BROWSER="chromium"
 
+# add ~/.bin to path
+export PATH="${PATH}:${HOME}/.bin"
+
 # gitify the prompt
 source /usr/bin/gitify-prompt.sh set
 
