@@ -40,3 +40,6 @@ set splitbelow
 
 " show column 80
 set colorcolumn=80
+
+" scrolling in urxvt
+set mouse=a
