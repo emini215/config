@@ -86,8 +86,9 @@ bindsym $mod+Shift+r		restart
 bindsym	$mod+Shift+e		exec i3-msg exit
 bindsym $mod+Shift+q		kill
 
-bindsym $mod+Return		exec xfce4-terminal
-bindsym $mod+r			exec rofi -show run -terminal xfce4-terminal -sidebar-mode -font "Source Code Medium 15" -opacity 90 -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -width 30 -lines 5 -padding 15 -separator-style none -hide-scrollbar -bw 4 -bc "#111111" -run-list-command  
+bindsym $mod+Return		exec urxvt
+bindsym $mod+Shift+Return	exec urxvt -cd "`xcwd`"
+bindsym $mod+r			exec rofi -show run -terminal urxvt -sidebar-mode -font "Source Code Medium 15" -opacity 90 -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -width 30 -lines 5 -padding 15 -separator-style none -hide-scrollbar -bw 4 -bc "#111111" -run-list-command  
 
 bindsym $mod+f			fullscreen
 bindsym $mod+v			split v
