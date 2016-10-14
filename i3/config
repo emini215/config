@@ -106,7 +106,7 @@ bindsym $mod+b 			mode "resize"
 bindsym $mod+m			mode "move" focus floating
 
 # remove from scratchpad
-bindsym $mod+o			floating disable; floating enable
+bindsym $mod+o			floating enable; floating disable
 
 # change focus
 bindsym $mod+j			focus left
