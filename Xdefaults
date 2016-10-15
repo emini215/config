@@ -52,7 +52,9 @@ URxvt.cursorUnderline:	    1
 URxvt.urgentOnBell:	    true
 
 URxvt*font:		    xft:Source Code Pro Semibold:size=9
-URxvt.letterspace:	    -1
+URxvt.letterSpace:	    -1
+URxvt.lineSpace:	    -1
+!URxvt*font: xft:Noto Emoji:size=10
 
 URxvt.internalBorder:	    10
 
