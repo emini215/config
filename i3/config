@@ -109,16 +109,18 @@ bindsym $mod+m			mode "move" focus floating
 bindsym $mod+o			floating enable; floating disable
 
 # change focus
-bindsym $mod+j			focus left
-bindsym $mod+k			focus down
-bindsym $mod+l			focus up
-bindsym $mod+odiaeresis		focus right
+bindsym $mod+h			focus left
+bindsym $mod+j			focus down
+bindsym $mod+k			focus up
+bindsym $mod+l			focus right
+#bindsym $mod+odiaeresis		focus right
 
 # move focused window
-bindsym $mod+Shift+j		move left
-bindsym $mod+Shift+k		move down
-bindsym $mod+Shift+l		move up
-bindsym $mod+Shift+odiaeresis	move right
+bindsym $mod+Shift+h		move left
+bindsym $mod+Shift+j		move down
+bindsym $mod+Shift+k		move up
+bindsym $mod+Shift+l		move right
+#bindsym $mod+Shift+odiaeresis	move right
 
 # volume control
 bindcode 121 exec amixer -D pulse sset Master toggle
@@ -156,10 +158,11 @@ bindsym $mod+Shift+5		move container to workspace $workspace5
 
 # move floating windows with keys
 mode "move" {
-	bindsym j			move left
-	bindsym k			move down
-	bindsym l			move up
-	bindsym odiaeresis		move right
+	bindsym h			move left
+	bindsym j			move down
+	bindsym k			move up
+	bindsym l			move right
+	#bindsym odiaeresis		move right
 
 	# use Return/Escape to go back to normal
 	bindsym Return			mode "default"
@@ -168,10 +171,11 @@ mode "move" {
 
 # resize window
 mode "resize" {
-	bindsym j			resize shrink	width	10 px or 10 ppt
-	bindsym k			resize grow	height	10 px or 10 ppt
-	bindsym l			resize shrink	height	10 px or 10 ppt
-	bindsym odiaeresis		resize grow	width	10 px or 10 ppt
+	bindsym h			resize shrink	width	10 px or 10 ppt
+	bindsym j			resize grow	height	10 px or 10 ppt
+	bindsym k			resize shrink	height	10 px or 10 ppt
+	bindsym l			resize grow	widdth	10 px or 10 ppt
+	#bindsym odiaeresis		resize grow	width	10 px or 10 ppt
 
 	# use Return/Escape to go back to normal
 	bindsym Return			mode "default"
