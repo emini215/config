@@ -91,8 +91,10 @@ bindsym $mod+Shift+Return	exec urxvt -cd "`xcwd`"
 bindsym $mod+r			exec rofi -show run -terminal urxvt -sidebar-mode -font "Source Code Medium 15" -opacity 90 -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -width 30 -lines 5 -padding 15 -separator-style none -hide-scrollbar -bw 4 -bc "#111111" -run-list-command  
 
 bindsym $mod+f			fullscreen
-bindsym $mod+v			split v
-bindsym $mod+h			split h
+#bindsym $mod+v			split v
+#bindsym $mod+h			split h
+bindsym $mod+s			split v
+bindsym $mod+Shift+s		split h
 
 # floating
 bindsym $mod+t			focus mode_toggle
