@@ -7,8 +7,8 @@ set $workspace5 "5: Spotify &#xf1bc;"
 
 # colour variables
 set $bg-color 	         #000000
-set $active-bg-color	 #064273
-set $inactive-bg-color   #032745 
+set $active-bg-color	 #1e5481
+set $inactive-bg-color   #021f37
 set $text-color          #FFFFFF
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
