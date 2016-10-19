@@ -80,6 +80,7 @@ for_window [class="chromium"] 	border pixel 0
 for_window [class="Slack"]	border pixel 0
 for_window [class="Spotify"]	border pixel 0
 for_window [class="Opera"]	border pixel 0
+for_window [class="jetbrains-studio"] border pixel 0
 
 # commands
 bindsym $mod+Shift+c		reload
