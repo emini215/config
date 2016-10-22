@@ -82,6 +82,17 @@ for_window [class="Spotify"]	border pixel 0
 for_window [class="Opera"]	border pixel 0
 for_window [class="jetbrains-studio"] border pixel 0
 
+# start second monitor on left
+exec --no-startup-id xrandr --output HDMI1 --left-of eDP1
+
+# put workspace on specific monitor by default
+#workspace $workspace1 output HDMI1
+#workspace $workspace2 output HDMI1
+#workspace $workspace5 output HDMI1
+
+# switch workspace between monitors
+bindsym $mod+Shift+m		move  workspace to output left
+
 # commands
 bindsym $mod+Shift+c		reload
 bindsym $mod+Shift+r		restart
