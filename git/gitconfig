@@ -1,0 +1,6 @@
+[core]
+    excludesfile = $HOME/.config/git/gitignore
+
+[user]
+    email = karl.emil.nilsson@gmail.com
+    name = Emil Nilsson

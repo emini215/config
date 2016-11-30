@@ -1,0 +1,86 @@
+[global]
+    
+    font = Source Code Pro Medium 10
+
+    geometry = "0x4+10+10"
+
+    # aligns text
+    alignment = left
+
+    # allows some html-style markup
+    allow_markup = yes
+    format = "<b>%a %s</b>%p\n%b"
+
+    # sort by urgency, and show hidden
+    sort = yes
+    indicate_hidden = yes
+
+    # split lines longer than the notification window allows
+    bounce_freq = 0
+    word_wrap = yes
+
+    ignore_newline = no
+    
+    # show age of message older than threshold disabled
+    show_age_threshhold = -1
+
+    browser = /usr/bin/opera
+
+    # notification popped from history sticks around longer
+    # than timeout
+    sticky_history = yes
+
+    # do not remove messages after idle_threshold is passed
+    idle_threshold = 30
+    history_length = 20
+
+    separator_height = 0
+    padding = 10
+    horizontal_padding = 10
+    # auto, foreground, frame, X-color
+    separator_color = auto
+
+    show_indicators = yes
+    transparancy = 80
+
+    icon_position = left
+    shrink = no
+
+[frame]
+    
+    width = 5
+    color =  "#1F5679"
+
+
+[urgency_low]
+    
+    background = "#1F5679"
+    foreground = "#C2C6C9"
+    timeout = 5
+
+
+[urgency_normal]
+    
+    background = "#1F5679"
+    foreground = "#CCCCCC"
+    timeout = 8
+
+
+[urgency_critical]
+    
+    background = "#C2C6C9"
+    foreground = "#1F5679"
+    timeout = 0
+
+
+[shortcuts]
+    
+    close = ctrl+k
+    close_all = ctrl+shift+k
+    history = ctrl+j
+
+[hangups]
+    appname = hangups
+    urgency = normal
+    format = "<b>%s</b>:\n%b"
+    script = hangouts_sound
