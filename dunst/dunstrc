@@ -80,5 +80,6 @@
     history = ctrl+j
 
 [hangups]
-    appname = Hangouts
+	appname = "hangups"
+	script = hangout_sound
 
