@@ -63,6 +63,7 @@ assign [class="Spotify"] $workspace5
 # fix for spotify
 for_window [class="Spotify"] move to workspace $workspace5
 
+assign [class="chromium"] $workspace1
 assign [class="jetbrains-studio"] $workspace4
 
 # enable floating terminals
