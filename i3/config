@@ -59,8 +59,10 @@ workspace $workspace1	gaps inner 0
 workspace $workspace5	gaps inner 0
 
 # assign applications to workspaces
-assign [class="spotify"]    $workspace5
-assign [class="chromium"]   $workspace1
+assign [class="Spotify"] $workspace5
+# fix for spotify
+for_window [class="Spotify"] move to workspace $workspace5
+
 assign [class="jetbrains-studio"] $workspace4
 
 # enable floating terminals
