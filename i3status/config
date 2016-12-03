@@ -27,9 +27,14 @@ battery 0 {
         format = "%status %percentage"
 	path = "/sys/class/power_supply/BAT1/uevent"
 	low_threshold = 15
-	status_chr = ""
+	status_chr = ""
 	status_bat = ""
 	status_full = " "
+}
+
+wireless wlp2s0 {
+    format_up =" %essid %quality %bitrate"
+    format_down = ""
 }
 
 tztime local {
@@ -37,5 +42,5 @@ tztime local {
 }
 
 cpu_usage {
-	format = "CPU: %usage"
+	format = " %usage"
 }
