@@ -32,6 +32,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+# set screen before background so both monitors have it
+# set the position of the second monitor to end of first but one 
+# pixel in so that it is considered on right
+xrandr --output HDMI1 --pos 1366x767
+
 # set background
 feh --bg-scale $HOME/media/pictures/backgrounds/wallpaper.jpg
 
