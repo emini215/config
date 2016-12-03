@@ -28,3 +28,6 @@ source /usr/bin/gitify-prompt.sh set
 
 # get tab-completion for git
 source /usr/share/git/completion/git-completion.bash
+
+# get tab completion for npm
+source /usr/share/bash-completion/completions/npm
