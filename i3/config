@@ -189,7 +189,7 @@ mode "resize" {
 	bindsym h			resize shrink	width	10 px or 10 ppt
 	bindsym j			resize shrink	height	10 px or 10 ppt
 	bindsym k			resize grow	height	10 px or 10 ppt
-	bindsym l			resize grow	widdth	10 px or 10 ppt
+	bindsym l			resize grow	width	10 px or 10 ppt
 	#bindsym odiaeresis		resize grow	width	10 px or 10 ppt
 
 	# use Return/Escape to go back to normal
