@@ -45,6 +45,7 @@ font pango:Source Code Pro Medium 8
 
 exec dunst 
 exec compton --config $HOME/.config/compton.conf -b
+exec backgrinder &
 
 # screen locker
 bindsym $mod+x		exec /usr/local/bin/lock
