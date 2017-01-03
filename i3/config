@@ -52,7 +52,7 @@ bindsym $mod+x		exec /usr/local/bin/lock
 exec xautolock -time 5 -locker /usr/local/bin/lock -detectsleep
 
 # i3-gaps settings
-gaps inner 0
+gaps inner 12
 gaps outer 0
 
 # make some workspaces use full screen
