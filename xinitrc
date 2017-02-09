@@ -42,4 +42,5 @@ feh --bg-scale $HOME/media/pictures/backgrounds/wallpaper
 
 # set swedish keyboard layout and start i3
 setxkbmap se
+setxkbmap -option caps:escape
 exec i3
