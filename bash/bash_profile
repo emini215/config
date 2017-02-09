@@ -18,3 +18,8 @@ export PATH="$PATH:`yarn global bin`"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+# ruby gems
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
