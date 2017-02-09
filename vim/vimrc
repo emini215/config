@@ -38,8 +38,19 @@ set softtabstop=4
 " direction of split
 set splitbelow
 
-" show column 80
-set colorcolumn=80
-
 " scrolling in urxvt
 set mouse=a
+
+" highlight column 80
+"highlight ColorColumn ctermbg=16
+"set colorcolumn=80
+
+" also show all characters after 80 with hightlight as well and underline
+highlight TooLong cterm=underline
+match TooLong '\%>80v.\+'
+
+highlight ErrorMsg ctermfg=Black
+highlight MatchParen ctermbg=81 ctermfg=6
+
+"match TaskTags 'TODO\|FIXME\|XXX\|BUG'
+
