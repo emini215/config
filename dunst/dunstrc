@@ -83,3 +83,6 @@
 	appname = "hangups"
 	script = hangout_sound
 
+[electron]
+	appname = "Electron"
+	format = "<b>%s</b> %p\n%b"
