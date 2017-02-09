@@ -2,16 +2,16 @@
 # ~/.bashrc
 #
 
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 # autocomplete as sudo as well
 if [ "$PS1" ]; then
     complete -cf sudo
 fi
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
 # cool colours for ls
-alias ls='ls --color=auto'
+alias ls='ls --color=auto -b'
 
 # set vim as default editor
 export VISUAL=vim
