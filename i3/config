@@ -1,74 +1,92 @@
+font pango:Source Code Pro Medium 8
+
+#set modifiers
+set $mod Mod1
+floating_modifier $mod
+
+# navigation-keys
+set $up k
+set $down j
+set $left h
+set $right l
+
 # workspace variables
-set $workspace1 "1: Chromium &#xf268;"
+#set $workspace1 "1: Chromium &#xf268;"
+set $workspace1 "1: Opera &#xf26a;"
 set $workspace2 "2: Coms &#xf004;"
 set $workspace3 "3: Win &#xf193;"
 set $workspace4 "4: Code &#xf09b;"
 set $workspace5 "5: Spotify &#xf1bc;"
 
 # colour variables
-set $bg-color #000000
-set $active-bg-color #FF5557
-set $inactive-bg-color #1e5481
-set $text-color #FFFFFF
-set $inactive-text-color #676E7D
-set $urgent-bg-color #E53935
+set $null #FFFFFF
+
+set $urgent-bg #E53935
+set $focus-bg #FF5557
+set $unfocus-bg #1F5679
+set $bar-bg #1F5679
+
+set $text #FFFFFF
+set $dim-text #B2B6B9
 set $indicator #993334
 
-# window colors
-#			border		    background		text			indicator
-client.focused          "#FFFFFF"	    $active-bg-color	$text-color		$indicator
-client.unfocused        $inactive-bg-color  $inactive-bg-color	$inactive-text-color	$inactive-bg-color
-client.focused_inactive $inactive-bg-color  $inactive-bg-color	$inactive-text-color	$inactive-bg-color
-client.urgent           $urgent-bg-color    $urgent-bg-color	$text-color		$urgent-bg-color
+# window-class		    border  background	    text	indicator
+client.focused		    $null   $focus-bg	    $text	$indicator
+client.focused_inactive	    $null   $unfocus-bg	    $dim-text	$unfocus-bg
+client.unfocused	    $null   $unfocus-bg	    $dim-text	$unfcous-bg
+client.urgent		    $null   $urgent-bg	    $text	$urgent-bg
 
-# place i3status at the top of the screen when $mod is pressed
 bar {
-	status_command i3status
+	status_command i3blocks 
+	#status_command i3status
 	font pango:Source Code Pro Medium, FontAwesome 9
+
 	position	top
-	
-	mode		hide
+	mode		dock
 	modifier	$mod
+	hidden_state	show
+	
 	colors {
-		background $bg-color
-	    	separator #757575
-		#                  border	    background		text
-		focused_workspace  $active-bg-color $active-bg-color	$text-color
-		inactive_workspace $bg-color	    $bg-color		$inactive-text-color
-		urgent_workspace   $urgent-bg-color $urgent-bg-color	$text-color
+		background $bar-bg
+		
+		#class		    border	background  text
+		focused_workspace   $bar-bg	$bar-bg	    $text
+		active_workspace    $bar-bg	$bar-bg	    $dim-text
+		inactive_workspace  $bar-bg	$bar-bg	    $dim-text
+		urgent_workspace    $urgent-bg	$urgent-bg  $text
 	}
 }
 
-set $mod Mod1
-floating_modifier $mod
-font pango:Source Code Pro Medium 8
-
-exec dunst 
-exec compton --config $HOME/.config/compton.conf -b
-exec backgrinder &
-
-# screen locker
+# lock screen
 bindsym $mod+x		exec /usr/local/bin/lock
-exec xautolock -time 5 -locker /usr/local/bin/lock -detectsleep
 
 # i3-gaps settings
 gaps inner 12
 gaps outer 0
 
+smart_gaps yes # only gaps if more than one container in workspace
+smart_borders no_gaps # only have borders if not only container
+
 # make some workspaces use full screen
 workspace $workspace1	gaps inner 0
 workspace $workspace5	gaps inner 0
+workspace $workspace4	gaps inner 0
+
+#for_window [class="Chromium"] border pixel 0
 
 # assign applications to workspaces
 assign [class="Spotify"] $workspace5
+assign [instance="spotify"] $workspace5
 # fix for spotify
 for_window [class="Spotify"] move to workspace $workspace5
 
-assign [class="chromium"] $workspace1
+assign [class="Chromium"] $workspace1
 assign [class="jetbrains-studio"] $workspace4
 
+assign [class="Wine"] $workspace3
+
 # enable floating terminals
-for_window [class="URxvt" instance="floating"] floating enable
+for_window [instance="floating"] floating enable
 
 # i3 settings
 workspace_auto_back_and_forth yes
@@ -81,10 +99,6 @@ hide_edge_borders none
 
 # hide borders for some applications
 for_window [class="chromium"] 	border pixel 0
-for_window [class="Slack"]	border pixel 0
-for_window [class="Spotify"]	border pixel 0
-for_window [class="Opera"]	border pixel 0
-for_window [class="jetbrains-studio"] border pixel 0
 
 # put workspace on specific monitor by default
 #workspace $workspace1 output HDMI1
@@ -100,13 +114,13 @@ bindsym $mod+Shift+r		restart
 bindsym	$mod+Shift+e		exec i3-msg exit
 bindsym $mod+Shift+q		kill
 
-bindsym $mod+Return		exec urxvt
-bindsym $mod+Shift+Return	exec urxvt -cd "`xcwd`"
-bindsym $mod+r			exec rofi -show run -terminal urxvt -sidebar-mode -font "Source Code Medium 15" -opacity 90 -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -width 30 -lines 5 -padding 15 -separator-style none -hide-scrollbar -bw 4 -bc "#111111" -run-list-command  
+bindsym $mod+Return		exec termite
+bindsym $mod+Shift+Return	exec termite -d "`xcwd`"
+bindsym $mod+r			exec rofi -show run 
+bindsym $mod+g			exec rofi -show google -modi "google:rofi-web-search"
+bindsym $mod+b			exec rofi -show books -modi "books:rofi-literature-search"
 
 bindsym $mod+f			fullscreen
-#bindsym $mod+v			split v
-#bindsym $mod+h			split h
 bindsym $mod+s			split v
 bindsym $mod+Shift+s		split h
 
@@ -118,7 +132,7 @@ bindsym $mod+Shift+p		move scratchpad
 bindsym $mod+p			scratchpad show
 
 # scratchpad controls
-bindsym $mod+b 			mode "resize"
+bindsym $mod+v 			mode "resize"
 bindsym $mod+m			mode "move" focus floating
 
 # remove from scratchpad
@@ -129,14 +143,12 @@ bindsym $mod+h			focus left
 bindsym $mod+j			focus down
 bindsym $mod+k			focus up
 bindsym $mod+l			focus right
-#bindsym $mod+odiaeresis		focus right
 
 # move focused window
 bindsym $mod+Shift+h		move left
 bindsym $mod+Shift+j		move down
 bindsym $mod+Shift+k		move up
 bindsym $mod+Shift+l		move right
-#bindsym $mod+Shift+odiaeresis	move right
 
 # volume control
 bindcode 121 exec amixer -D pulse sset Master toggle
@@ -155,8 +167,11 @@ bindcode $mod+232 exec xbacklight -dec 10
 bindcode $mod+233 exec xbacklight -inc 10
 
 # saving printscreens in ~/media/pictures/screenshots
-bindcode 107 exec scrot $HOME/media/pictures/screenshots/%Y-%m-%d-%T.png
-bindcode $mod+107 exec scrot $HOME/media/pictures/screenshots/%Y-%m-%d-%T.png
+bindcode 107 exec scrot $(xdg-user-dir PICTURES)/screenshots/%Y-%m-%d-%T.png 
+bindcode $mod+107 exec scrot $(xdg-user-dir PICTURES)/screenshots/%Y-%m-%d-%T.png
+
+# spotify controls
+bindsym $mod+section mode "spotify"
 
 # switching workspace
 bindsym $mod+1			workspace $workspace1
@@ -172,29 +187,43 @@ bindsym $mod+Shift+3		move container to workspace $workspace3
 bindsym $mod+Shift+4		move container to workspace $workspace4
 bindsym $mod+Shift+5		move container to workspace $workspace5
 
+
+mode "spotify" {
+    bindsym section		exec playerctl -p spotify play-pause
+    bindsym s			exec playerctl -p spotify stop
+    bindsym n			exec playerctl -p spotify next
+    bindsym p			exec playerctl -p spotify previous
+
+    bindsym Return		mode "default"
+    bindsym Escape		mode "default"
+}
+
+
 # move floating windows with keys
 mode "move" {
-	bindsym h			move left
-	bindsym j			move down
-	bindsym k			move up
-	bindsym l			move right
-	#bindsym odiaeresis		move right
+    bindsym h			move left
+    bindsym j			move down
+    bindsym k			move up
+    bindsym l			move right
 
-	# use Return/Escape to go back to normal
-	bindsym Return			mode "default"
-	bindsym Escape			mode "default"
+    # use Return/Escape to go back to normal
+    bindsym Return		mode "default"
+    bindsym Escape		mode "default"
 }
 
 # resize window
 mode "resize" {
-	bindsym h			resize shrink	width	10 px or 10 ppt
-	bindsym j			resize shrink	height	10 px or 10 ppt
-	bindsym k			resize grow	height	10 px or 10 ppt
-	bindsym l			resize grow	width	10 px or 10 ppt
-	#bindsym odiaeresis		resize grow	width	10 px or 10 ppt
+    bindsym h			resize shrink	width	10 px or 10 ppt
+    bindsym j			resize shrink	height	10 px or 10 ppt
+    bindsym k			resize grow	height	10 px or 10 ppt
+    bindsym l			resize grow	width	10 px or 10 ppt
 
-	# use Return/Escape to go back to normal
-	bindsym Return			mode "default"
-	bindsym Escape			mode "default"
+    # use Return/Escape to go back to normal
+    bindsym Return		mode "default"
+    bindsym Escape		mode "default"
 }
 
+# autostart
+exec dunst 
+exec compton --config $HOME/.config/compton.conf -b
+exec xautolock -time 5 -locker /usr/local/bin/lock -detectsleep
